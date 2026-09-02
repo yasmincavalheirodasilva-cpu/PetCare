@@ -7,7 +7,6 @@ import java.util.List;
 
 public class ClienteDAO {
 
-    // Insere um novo cliente no banco
     public void inserir(Connection conn, Cliente cliente) {
 
         String sql = "INSERT INTO cliente (nome, cpf, telefone, email, endereco) "
@@ -30,7 +29,6 @@ public class ClienteDAO {
         }
     }
 
-    // Consulta todos os clientes cadastrados
     public List<Cliente> listar(Connection conn) {
 
         List<Cliente> clientes = new ArrayList<>();
@@ -62,7 +60,6 @@ public class ClienteDAO {
         return clientes;
     }
 
-    // Atualiza os dados de um cliente
     public void atualizar(Connection conn, Cliente cliente) {
 
         String sql = "UPDATE cliente SET nome = ?, cpf = ?, telefone = ?, "
@@ -86,7 +83,6 @@ public class ClienteDAO {
         }
     }
 
-    // Exclui um cliente pelo ID
     public void excluir(Connection conn, int idCliente) {
 
         String sql = "DELETE FROM cliente WHERE id_cliente = ?";
