@@ -13,7 +13,6 @@ public class PetDAO {
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Preenche os valores do comando SQL
             stmt.setString(1, pet.getNome());
             stmt.setString(2, pet.getEspecie());
             stmt.setString(3, pet.getRaca());
