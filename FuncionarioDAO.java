@@ -4,7 +4,6 @@ import java.util.List;
 
 public class FuncionarioDAO {
 
-    // insere um novo funcionário no banco
     public void inserir(Connection conn, Funcionario funcionario) {
         String sql = "INSERT INTO funcionario (nome, cpf, telefone, cargo) VALUES (?, ?, ?, ?)";
 
@@ -23,7 +22,6 @@ public class FuncionarioDAO {
         }
     }
 
-    // lista todos os funcionários cadastrados
     public List<Funcionario> listar(Connection conn) { 
 
         List<Funcionario> funcionarios = new ArrayList<>(); 
@@ -34,12 +32,7 @@ public class FuncionarioDAO {
 
             while (rs.next()) {
 
-                Funcionario funcionario = new Funcionario(
-                    rs.getString("nome"),
-                    rs.getString("cpf"),
-                    rs.getString("telefone"),
-                    rs.getString("cargo")
-                );
+                Funcionario funcionario = new Funcionario(rs.getString("nome"),rs.getString("cpf"),rs.getString("telefone"),rs.getString("cargo"));
 
                 funcionario.setIdFuncionario(rs.getInt("id_funcionario"));
 
